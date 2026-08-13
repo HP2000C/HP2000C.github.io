@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>404 ERROR</title>
+
+    <!-- Vazirmatn Persian Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-gradient-start: #fafaff;
+            --bg-gradient-end: #eef2ff;
+            --card-bg: #ffffff;
+            --text-primary: #1e1b4b;
+            --accent-soft: #ede9fe;
+            --accent-border: #ddd6fe;
+            --shadow-card: 0 20px 60px -12px rgba(79, 70, 229, 0.12), 0 8px 24px -8px rgba(0, 0, 0, 0.06);
+            --radius-card: 28px;
+            --font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            --emoji-font-size: 1.2rem;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-family);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(160deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            position: relative;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        /* --- Decorative Background Shapes --- */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(60px);
+            opacity: 0.55;
+            animation: floatShape 14s ease-in-out infinite;
+        }
+        .bg-shape--1 {
+            width: 350px;
+            height: 350px;
+            background: #ddd6fe;
+            top: -80px;
+            left: -60px;
+            animation-delay: 0s;
+            animation-duration: 16s;
+        }
+        .bg-shape--2 {
+            width: 280px;
+            height: 280px;
+            background: #fbcfe8;
+            bottom: -40px;
+            right: -50px;
+            animation-delay: -5s;
+            animation-duration: 18s;
+        }
+        .bg-shape--3 {
+            width: 200px;
+            height: 200px;
+            background: #bfdbfe;
+            top: 45%;
+            left: 55%;
+            animation-delay: -9s;
+            animation-duration: 15s;
+            opacity: 0.4;
+        }
+
+        @keyframes floatShape {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -40px) scale(1.08); }
+            50% { transform: translate(-20px, -60px) scale(0.94); }
+            75% { transform: translate(-40px, 25px) scale(1.05); }
+        }
+
+        /* --- Main Card --- */
+        .main-card {
+            position: relative;
+            z-index: 2;
+            background: var(--card-bg);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            padding: 2.5rem 1.8rem 1.8rem;
+            width: min(620px, 94vw);
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid rgba(221, 214, 254, 0.5);
+            backdrop-filter: blur(4px);
+            overflow: hidden;
+            transition: box-shadow 0.4s ease;
+        }
+
+        .main-card:hover {
+            box-shadow: 0 28px 80px -16px rgba(79, 70, 229, 0.2), 0 12px 32px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- Watermark 404 --- */
+        .watermark-404 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(6rem, 18vw, 11rem);
+            font-weight: 900;
+            color: rgba(99, 102, 241, 0.06);
+            letter-spacing: 0.05em;
+            user-select: none;
+            pointer-events: none;
+            line-height: 1;
+            z-index: 0;
+            white-space: nowrap;
+        }
+
+        /* --- Content --- */
+        .content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.6rem;
+        }
+
+        /* --- Main Heading (single line) --- */
+        .main-heading {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            display: inline-block;
+        }
+
+        .main-heading .emoji-inline {
+            display: inline-block;
+            font-size: 1.2em;
+            vertical-align: middle;
+            margin: 0 0.2rem;
+            animation: bounceEmoji 2.4s ease-in-out infinite;
+            transform-origin: center;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+        }
+
+        .main-heading .emoji-inline:nth-child(1) { animation-delay: 0s; }
+        .main-heading .emoji-inline:nth-child(2) { animation-delay: 0.3s; }
+        .main-heading .emoji-inline:nth-child(3) { animation-delay: 0.6s; }
+        .main-heading .emoji-inline:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes bounceEmoji {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            20% { transform: translateY(-4px) rotate(-4deg); }
+            40% { transform: translateY(0) rotate(0deg); }
+            60% { transform: translateY(-2px) rotate(3deg); }
+            80% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* --- Animated Full‑Width Divider (large & small) --- */
+        .animated-divider {
+            width: 80%;
+            height: 4px;
+            margin: 0 auto;              /* centers the line */
+            background: linear-gradient(90deg, #c4b5fd, #f0abfc, #c4b5fd);
+            background-size: 200% 100%;
+            border-radius: 99px;
+            opacity: 0.85;
+            animation: thickThinPulse 2.8s ease-in-out infinite;
+        }
+
+        @keyframes thickThinPulse {
+            0%, 100% {
+                width: 80%;
+                height: 4px;
+                background-position: 0% 50%;
+            }
+            35% {
+                width: 100%;
+                height: 8px;
+                background-position: 50% 50%;
+            }
+            70% {
+                width: 90%;
+                height: 6px;
+                background-position: 100% 50%;
+            }
+        }
+
+        /* --- Plain Emoji Carousel (no box, only sliding emoji) --- */
+        .swap-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            position: relative;
+        }
+
+        #currentEmoji {
+            font-size: var(--emoji-font-size);
+            line-height: 1;
+            display: inline-block;
+            will-change: transform, opacity;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Slide out to the left (longer distance for visibility) */
+        .slide-out-left {
+            animation: slideOutLeft 0.6s ease-in forwards;
+        }
+        /* Slide in from the right (longer distance) */
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        @keyframes slideOutLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-250%); opacity: 0; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(250%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* --- Responsive fine-tuning --- */
+        @media (max-width: 640px) {
+            .main-card {
+                padding: 1.8rem 1.2rem 1.2rem;
+                border-radius: 20px;
+            }
+            .main-heading {
+                font-size: 1.3rem;
+            }
+            .main-heading .emoji-inline {
+                font-size: 1em;
+            }
+            :root {
+                --emoji-font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            :root {
+                --emoji-font-size: 0.9rem;
+            }
+            .main-heading {
+                font-size: 1.1rem;
+            }
+            .swap-container {
+                min-height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Decorative background shapes -->
+    <div class="bg-shape bg-shape--1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape--2" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape--3" aria-hidden="true"></div>
+
+    <!-- Main Card -->
+    <main class="main-card" role="alert" aria-label="خطای ۴۰۴">
+
+        <!-- Watermark 404 -->
+        <div class="watermark-404" aria-hidden="true">404</div>
+
+        <div class="content">
+            <!-- Main Persian Heading (single line) -->
+            <h1 class="main-heading">
+                <span class="emoji-inline">🤕</span>
+                <span class="emoji-inline">🤥</span>
+                اُه! این آدرس یافت نشد...
+                <span class="emoji-inline">😤</span>
+                <span class="emoji-inline">🥱</span>
+            </h1>
+
+            <!-- Full-width animated divider (big and small) -->
+            <div class="animated-divider" aria-hidden="true"></div>
+
+            <!-- Plain emoji carousel (no box, only sliding emoji) -->
+            <div class="swap-container" id="swapContainer" aria-label="ایموجی در حال تغییر">
+                <span id="currentEmoji">😭</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            const emojiList = ['😭', '🤨', '😐', '😒', '🙄', '😔', '🥺'];
+            const currentEmoji = document.getElementById('currentEmoji');
+            let currentIndex = 0;
+            let isAnimating = false;
+
+            // Change emoji with slide out to left, then slide in from right
+            function changeEmoji() {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                // Slide out current emoji
+                currentEmoji.classList.add('slide-out-left');
+
+                setTimeout(() => {
+                    // Move to next emoji
+                    currentIndex = (currentIndex + 1) % emojiList.length;
+                    currentEmoji.textContent = emojiList[currentIndex];
+
+                    // Remove slide-out, add slide-in
+                    currentEmoji.classList.remove('slide-out-left');
+                    void currentEmoji.offsetWidth; // reflow
+                    currentEmoji.classList.add('slide-in-right');
+
+                    setTimeout(() => {
+                        currentEmoji.classList.remove('slide-in-right');
+                        isAnimating = false;
+                    }, 600); // matches slide-in duration
+                }, 600); // matches slide-out duration
+            }
+
+            // Rotate every 2.2 seconds
+            const intervalId = setInterval(changeEmoji, 2200);
+
+            // Click on the emoji area to manually change
+            document.getElementById('swapContainer').addEventListener('click', changeEmoji);
+
+            // Cleanup on unload
+            window.addEventListener('beforeunload', () => {
+                clearInterval(intervalId);
+            });
+        })();
+    </script>
+
+</body>
+  </html>
